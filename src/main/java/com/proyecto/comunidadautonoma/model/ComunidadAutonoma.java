@@ -1,13 +1,18 @@
 package com.proyecto.comunidadautonoma.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="comunidad_autonoma")
@@ -24,6 +29,11 @@ public class ComunidadAutonoma implements Serializable{
 	@Column(name="orgResponsable")
 	private String orgResponsable;
 	
+	
+	@OneToMany
+	@JoinColumn(name="codca")
+	@JsonIgnore
+	private Set<ComunidadParque> co_pa;
 	
 	public ComunidadAutonoma( String nombre, String orgResponsable) {
 		super();
@@ -51,6 +61,12 @@ public class ComunidadAutonoma implements Serializable{
 	}
 	public void setOrgResponsable(String orgResponsable) {
 		this.orgResponsable = orgResponsable;
+	}
+	public Set<ComunidadParque> getCo_pa() {
+		return co_pa;
+	}
+	public void setCo_pa(Set<ComunidadParque> co_pa) {
+		this.co_pa = co_pa;
 	}
 	
 	

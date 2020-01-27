@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Date;
 import java.util.Set;
@@ -39,6 +42,10 @@ public class ParqueNatural implements Serializable {
 	private Set<Area> areas;
 	
 	
+	@OneToMany
+	@JoinColumn(name="codpn")
+	@JsonIgnore
+	private Set<ComunidadParque> co_pa;
 	
 	public ParqueNatural(String nombre, Date fechaDeclaracion) {
 		super();
@@ -84,6 +91,12 @@ public class ParqueNatural implements Serializable {
 	}
 	public void setAreas(Set<Area> areas) {
 		this.areas = areas;
+	}
+	public Set<ComunidadParque> getCo_pa() {
+		return co_pa;
+	}
+	public void setCo_pa(Set<ComunidadParque> co_pa) {
+		this.co_pa = co_pa;
 	}
 	
 	
