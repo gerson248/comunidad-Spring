@@ -3,27 +3,37 @@ package com.proyecto.comunidadautonoma.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import java.sql.Date;
+import java.util.Set;
+
+
+@Entity
+@Table(name="parquenatural")
 public class ParqueNatural implements Serializable {
 	
 	@Id
-	@Column(name="CODPN")
+	@Column(name="codpn")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int codPN;
 	
-	@Column(name="NOMBRE")
+	@Column(name="nombre")
 	private String nombre;
 	
-	@Column(name="FECHADECLARACION")
+	@Column(name="fechadeclaracion")
 	private Date fechaDeclaracion;
 	
-	public ParqueNatural(int codPN, String nombre, Date fechaDeclaracion) {
+	@OneToMany(mappedBy="parquenatural")
+	private Set<Excursion> excursiones;
+	
+	public ParqueNatural(String nombre, Date fechaDeclaracion) {
 		super();
-		this.codPN = codPN;
 		this.nombre = nombre;
 		this.fechaDeclaracion = fechaDeclaracion;
 	}
@@ -49,6 +59,13 @@ public class ParqueNatural implements Serializable {
 	public void setFechaDeclaracion(Date fechaDeclaracion) {
 		this.fechaDeclaracion = fechaDeclaracion;
 	}
+	public Set<Excursion> getExcursiones() {
+		return excursiones;
+	}
+	public void setExcursiones(Set<Excursion> excursiones) {
+		this.excursiones = excursiones;
+	}
+	
 	
 	
 }

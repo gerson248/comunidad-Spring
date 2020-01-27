@@ -24,7 +24,7 @@ public class DataBaseConfiguration {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean  sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
-		sessionFactoryBean.setPackagesToScan("com.platzi.profesoresPlatzi.model");
+		sessionFactoryBean.setPackagesToScan("com.proyecto.comunidadautonoma.model");
 		sessionFactoryBean.setHibernateProperties(hibernateProperties());
 		return sessionFactoryBean;
 	}
@@ -34,8 +34,8 @@ public class DataBaseConfiguration {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/platziprofesores?serverTimezone=UTC");
-		dataSource.setUsername("platziprofesores");
-		dataSource.setPassword("platziprofesores");
+		dataSource.setUsername("proyecto");
+		dataSource.setPassword("proyecto");
 		
 		return dataSource;
 	}
