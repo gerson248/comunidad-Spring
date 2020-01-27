@@ -15,21 +15,21 @@ import javax.persistence.Table;
 @Table(name="ca_pn")
 public class ComunidadParque {
 	
-	/*@Id
+	@Id
 	@Column(name="codcp")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codCP;*/
+	private Long codCP;
 	
 	@Column(name="superficie")
 	private String superficie;
 	
 	
-	@Id
+	//@Id
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="codca")
 	private ComunidadAutonoma comunidadAutonoma;
 	
-	@Id
+	//@Id
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="codpn")
 	private ParqueNatural parqueNatural;
@@ -48,13 +48,13 @@ public class ComunidadParque {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*public Long getCodCP() {
+	public Long getCodCP() {
 		return codCP;
 	}
 
 	public void setCodCP(Long codCP) {
 		this.codCP = codCP;
-	}*/
+	}
 
 	public String getSuperficie() {
 		return superficie;
