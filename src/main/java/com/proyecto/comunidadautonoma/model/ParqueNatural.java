@@ -42,10 +42,6 @@ public class ParqueNatural implements Serializable {
 	private Set<Area> areas;
 	
 	
-	@OneToMany
-	@JoinColumn(name="codpn")
-	@JsonIgnore
-	private Set<ComunidadParque> co_pa;
 	
 	public ParqueNatural(String nombre, Date fechaDeclaracion) {
 		super();
@@ -91,14 +87,6 @@ public class ParqueNatural implements Serializable {
 	}
 	public void setAreas(Set<Area> areas) {
 		this.areas = areas;
-	}
-	public Set<ComunidadParque> getCo_pa() {
-		return co_pa;
-	}
-	public void setCo_pa(Set<ComunidadParque> co_pa) {
-		this.co_pa = co_pa;
-	}
-	
-	
+	}	
 	
 }

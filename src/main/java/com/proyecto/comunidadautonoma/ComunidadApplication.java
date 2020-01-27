@@ -9,8 +9,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 public class ComunidadApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ComunidadApplication.class, args);
-		
+		SpringApplication.run(ComunidadApplication.class, args);	
 		System.out.println("hola");
 	}
 

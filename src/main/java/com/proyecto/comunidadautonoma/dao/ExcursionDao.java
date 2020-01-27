@@ -16,7 +16,6 @@ public interface ExcursionDao {
 	
 	 Excursion findById(long idExcursion);
 	
-	
 	List<Excursion> findByIdParqueNatural(Long idTParqueNatural);
 }
 
