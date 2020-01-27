@@ -35,7 +35,7 @@ public class Especie implements Serializable{
 	@OneToMany
 	@JoinColumn(name="codespecie")
 	@JsonIgnore
-	private Set<EspecieAnimal> e_a;
+	private Set<EspecieArea> e_a;
 	
 	@OneToMany(mappedBy="especie")
 	private Set<Animal> animales;
@@ -74,10 +74,10 @@ public class Especie implements Serializable{
 	public void setNombreVulgar(String nombreVulgar) {
 		this.nombreVulgar = nombreVulgar;
 	}
-	public Set<EspecieAnimal> getE_a() {
+	public Set<EspecieArea> getE_a() {
 		return e_a;
 	}
-	public void setE_a(Set<EspecieAnimal> e_a) {
+	public void setE_a(Set<EspecieArea> e_a) {
 		this.e_a = e_a;
 	}
 	public Set<Animal> getAnimales() {

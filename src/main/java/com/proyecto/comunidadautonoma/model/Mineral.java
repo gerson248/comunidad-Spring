@@ -16,14 +16,11 @@ import javax.persistence.Table;
 @Table(name="mineral")
 public class Mineral implements Serializable{
 	
-	@Id
-	@Column(name="codmineral")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codMineral;
 	
 	@Column(name="tipo")
 	private String tipo;
 	
+	@Id
 	@ManyToOne(optional=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="codespecie")
 	private Especie especie;
@@ -39,13 +36,6 @@ public class Mineral implements Serializable{
 	}
 	
 	
-	public Long getCodMineral() {
-		return codMineral;
-	}
-
-	public void setCodMineral(Long codMineral) {
-		this.codMineral = codMineral;
-	}
 
 	public String getTipo() {
 		return tipo;

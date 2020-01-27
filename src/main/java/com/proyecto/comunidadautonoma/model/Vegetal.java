@@ -16,10 +16,7 @@ import javax.persistence.Table;
 @Table(name="vegetal")
 public class Vegetal implements Serializable{
 	
-	@Id
-	@Column(name="codvegetal")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codVegetal;
+
 	
 	@Column(name="floracion")
 	private String floracion;
@@ -27,6 +24,7 @@ public class Vegetal implements Serializable{
 	@Column(name="periodoFloracion")
 	private String periodoFloracion;
 	
+	@Id
 	@ManyToOne(optional=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="codespecie")
 	private Especie especie;
@@ -44,13 +42,6 @@ public class Vegetal implements Serializable{
 	}
 	
 	
-	public Long getCodVegetal() {
-		return codVegetal;
-	}
-
-	public void setCodVegetal(Long codVegetal) {
-		this.codVegetal = codVegetal;
-	}
 
 	public String getFloracion() {
 		return floracion;

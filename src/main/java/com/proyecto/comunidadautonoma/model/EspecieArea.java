@@ -17,33 +17,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="e_a")
-public class EspecieAnimal implements Serializable{
+public class EspecieArea implements Serializable{
 	
-	@Id
-	@Column(name="codea")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codEA;
 	
 	@Column(name="cantindividuos")
 	private Long cantIndividuos;
 	
+	@Id
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="coda")
 	private Area area;
 	
+	@Id
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="codespecie")
 	private Especie especie;
 	
 	
 	
-	public EspecieAnimal(Long cantIndividuos, Especie especie, Area area) {
+	public EspecieArea(Long cantIndividuos, Especie especie, Area area) {
 		super();
 		this.especie = especie;
 		this.area = area;
 		this.cantIndividuos = cantIndividuos;
 	}
-	public EspecieAnimal() {
+	public EspecieArea() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -64,12 +62,6 @@ public class EspecieAnimal implements Serializable{
 	}
 	public void setCantIndividuos(Long cantIndividuos) {
 		this.cantIndividuos = cantIndividuos;
-	}
-	public Long getCodEA() {
-		return codEA;
-	}
-	public void setCodEA(Long codEA) {
-		this.codEA = codEA;
 	}
 			
 }

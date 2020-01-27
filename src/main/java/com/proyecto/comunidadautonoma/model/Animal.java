@@ -15,11 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="animal")
 public class Animal implements Serializable{
-	
-	@Id
-	@Column(name="codanimal")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codAnimal;
+
 	
 	@Column(name="alimentacion")
 	private String alimentacion;
@@ -27,6 +23,7 @@ public class Animal implements Serializable{
 	@Column(name="periodocelo")
 	private String periodoCelo;
 	
+	@Id
 	@ManyToOne(optional=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="codespecie")
 	private Especie especie;
@@ -43,14 +40,6 @@ public class Animal implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-
-	public Long getCodAnimal() {
-		return codAnimal;
-	}
-
-	public void setCodAnimal(Long codAnimal) {
-		this.codAnimal = codAnimal;
-	}
 
 	public String getAlimentacion() {
 		return alimentacion;
