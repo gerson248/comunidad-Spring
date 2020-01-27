@@ -6,17 +6,23 @@ import com.proyecto.comunidadautonoma.model.ParqueNatural;
 
 
 public interface ParqueNaturalDao {
-	void saveTeacher(ParqueNatural parqueNatural);
+	void saveParqueNatural(ParqueNatural parqueNatural);
 	
-	void deleteTeacherById(Long idParqueNatural);
+	void deleteParqueNaturalById(Long idParqueNatural);
 	
-	void updateTeacher(ParqueNatural parqueNatural);
+	void updateParqueNatural(ParqueNatural parqueNatural);
 	
-	List<ParqueNatural>findAllTeachers();
+	List<ParqueNatural>findAllParqueNaturales();
 	
 	ParqueNatural findById(Long idParqueNatural);
 	
 	ParqueNatural findByName(String name);
+
+	List<ParqueNatural> findByIdExcursion(Long idExcursion);
+	
+	List<ParqueNatural> findByIdPersonal(Long idPersonal);
+	
+	List<ParqueNatural> findByIdArea(Long idArea);
 }
 
 /*

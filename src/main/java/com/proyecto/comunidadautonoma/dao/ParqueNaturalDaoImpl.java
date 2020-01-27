@@ -7,13 +7,13 @@ import com.proyecto.comunidadautonoma.model.ParqueNatural;
 public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNaturalDao{
 
 	@Override
-	public void saveTeacher(ParqueNatural parqueNatural) {
+	public void saveParqueNatural(ParqueNatural parqueNatural) {
 		// TODO Auto-generated method stub
 		getSession().persist(parqueNatural);
 	}
 
 	@Override
-	public void deleteTeacherById(Long idParqueNatural) {
+	public void deleteParqueNaturalById(Long idParqueNatural) {
 		// TODO Auto-generated method stub
 		ParqueNatural parqueNatural= findById(idParqueNatural);
 		if(parqueNatural!=null) {
@@ -22,13 +22,13 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 	}
 
 	@Override
-	public void updateTeacher(ParqueNatural parqueNatural) {
+	public void updateParqueNatural(ParqueNatural parqueNatural) {
 		// TODO Auto-generated method stub
 		getSession().update(parqueNatural);
 	}
 
 	@Override
-	public List<ParqueNatural> findAllTeachers() {
+	public List<ParqueNatural> findAllParqueNaturales() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,6 +41,24 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 
 	@Override
 	public ParqueNatural findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ParqueNatural> findByIdExcursion(Long idExcursion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ParqueNatural> findByIdPersonal(Long idPersonal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ParqueNatural> findByIdArea(Long idArea) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -10,13 +10,13 @@ public interface ExcursionDao {
 	
 	void deleteExcursionById(Long idExcursion);
 	
-	void updateCourse(Excursion excursion);
+	void updateExcursion(Excursion excursion);
 	
 	List<Excursion>findAllExcursion();
 	
 	 Excursion findById(long idExcursion);
 	
-	List<Excursion> findByIdParqueNatural(Long idTParqueNatural);
+	List<Excursion> findByIdParqueNatural(Long idParqueNatural);
 }
 
 /*

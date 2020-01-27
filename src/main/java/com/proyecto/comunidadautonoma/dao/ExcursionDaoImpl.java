@@ -22,7 +22,7 @@ public class ExcursionDaoImpl extends AbstractSession implements ExcursionDao  {
 	}
 
 	@Override
-	public void updateCourse(Excursion excursion) {
+	public void updateExcursion(Excursion excursion) {
 		// TODO Auto-generated method stub
 		getSession().update(excursion);
 	}
@@ -40,7 +40,7 @@ public class ExcursionDaoImpl extends AbstractSession implements ExcursionDao  {
 	}
 
 	@Override
-	public List<Excursion> findByIdParqueNatural(Long idTParqueNatural) {
+	public List<Excursion> findByIdParqueNatural(Long idParqueNatural) {
 		// TODO Auto-generated method stub
 		return null;
 	}
