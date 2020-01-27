@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -36,6 +37,11 @@ public class Excursion implements Serializable {
 	@ManyToOne(optional=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="codpn")
 	private ParqueNatural parquenatural;
+	
+	//@ManyToMany(cascade= {CascadeType.ALL}, mappedBy="excursion")
+	@ManyToMany(cascade={CascadeType.ALL})
+	@JoinTable(name="e_v",joinColumns= {@JoinColumn(name="codexcursion")},inverseJoinColumns= {@JoinColumn(name="dni")})
+	private Set<Visitante> visitante;
 	
 	public Excursion(Date fecha, Date Hora) {
 		super();
@@ -71,6 +77,13 @@ public class Excursion implements Serializable {
 	public void setParquenatural(ParqueNatural parquenatural) {
 		this.parquenatural = parquenatural;
 	}
+	public Set<Visitante> getVisitante() {
+		return visitante;
+	}
+	public void setVisitante(Set<Visitante> visitante) {
+		this.visitante = visitante;
+	}
+	
 	
 	
 }
