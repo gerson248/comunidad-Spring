@@ -37,7 +37,7 @@ public class EspecieAnimal implements Serializable{
 	
 	
 	
-	public EspecieAnimal(Especie especie, Area area, Long cantIndividuos) {
+	public EspecieAnimal(Long cantIndividuos, Especie especie, Area area) {
 		super();
 		this.especie = especie;
 		this.area = area;

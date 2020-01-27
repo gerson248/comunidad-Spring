@@ -37,6 +37,15 @@ public class Especie implements Serializable{
 	@JsonIgnore
 	private Set<EspecieAnimal> e_a;
 	
+	@OneToMany(mappedBy="especie")
+	private Set<Animal> animales;
+	
+	@OneToMany(mappedBy="especie")
+	private Set<Vegetal> vegetales;
+	
+	@OneToMany(mappedBy="especie")
+	private Set<Mineral> minerales;
+	
 	
 	public Especie(String nombreCientifico, String nombreVulgar) {
 		super();
@@ -70,6 +79,24 @@ public class Especie implements Serializable{
 	}
 	public void setE_a(Set<EspecieAnimal> e_a) {
 		this.e_a = e_a;
+	}
+	public Set<Animal> getAnimales() {
+		return animales;
+	}
+	public void setAnimales(Set<Animal> animales) {
+		this.animales = animales;
+	}
+	public Set<Vegetal> getVegetales() {
+		return vegetales;
+	}
+	public void setVegetales(Set<Vegetal> vegetales) {
+		this.vegetales = vegetales;
+	}
+	public Set<Mineral> getMinerales() {
+		return minerales;
+	}
+	public void setMinerales(Set<Mineral> minerales) {
+		this.minerales = minerales;
 	}
 	
 	
