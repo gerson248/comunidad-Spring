@@ -1,7 +1,9 @@
 package com.proyecto.comunidadautonoma.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,14 +12,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
+
 
 @Entity
 @Table(name="area")
 public class Area implements Serializable{
 	
 	@Id
-	@Column(name="codca")
+	@Column(name="coda")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long coda;
 	
@@ -28,9 +34,15 @@ public class Area implements Serializable{
 	private double extension;
 	
 	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="coda")
+	private Set<EspecieAnimal> e_a;
+	
 	@ManyToOne(optional=true, fetch=FetchType.EAGER)
 	@JoinColumn(name="codpn")
 	private ParqueNatural parquenatural;
+	
+
 	
 	
 	public Area(String nombre, double extension) {
@@ -65,6 +77,12 @@ public class Area implements Serializable{
 	}
 	public void setParquenatural(ParqueNatural parquenatural) {
 		this.parquenatural = parquenatural;
+	}
+	public Set<EspecieAnimal> getE_a() {
+		return e_a;
+	}
+	public void setE_a(Set<EspecieAnimal> e_a) {
+		this.e_a = e_a;
 	}
 	
 	

@@ -35,6 +35,11 @@ public class ParqueNatural implements Serializable {
 	@OneToMany(mappedBy="parquenatural")
 	private Set<Personal> personales;
 	
+	@OneToMany(mappedBy="parquenatural")
+	private Set<Area> areas;
+	
+	
+	
 	public ParqueNatural(String nombre, Date fechaDeclaracion) {
 		super();
 		this.nombre = nombre;
@@ -73,6 +78,12 @@ public class ParqueNatural implements Serializable {
 	}
 	public void setPersonales(Set<Personal> personales) {
 		this.personales = personales;
+	}
+	public Set<Area> getAreas() {
+		return areas;
+	}
+	public void setAreas(Set<Area> areas) {
+		this.areas = areas;
 	}
 	
 	

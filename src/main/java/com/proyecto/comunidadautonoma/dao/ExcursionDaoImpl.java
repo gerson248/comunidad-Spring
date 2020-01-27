@@ -10,7 +10,7 @@ public class ExcursionDaoImpl extends AbstractSession implements ExcursionDao  {
 	public void saveExcursion(Excursion excursion) {
 		// TODO Auto-generated method stub
 		getSession().persist(excursion);
-	}
+	} 
 
 	@Override
 	public void deleteExcursionById(Long idExcursion) {

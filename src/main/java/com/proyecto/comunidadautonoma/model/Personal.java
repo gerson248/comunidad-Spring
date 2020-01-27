@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name="personal")
 public class Personal implements Serializable{
 	@Id
-	@Column(name="codPersonal")
+	@Column(name="codpersonal")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codPersonal;
 	
