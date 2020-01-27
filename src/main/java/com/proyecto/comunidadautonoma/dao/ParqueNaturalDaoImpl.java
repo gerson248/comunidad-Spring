@@ -45,7 +45,7 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public List<ParqueNatural> findByIdExcursion(Long idExcursion) {
 		// TODO Auto-generated method stub
 		return null;
@@ -61,6 +61,6 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 	public List<ParqueNatural> findByIdArea(Long idArea) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

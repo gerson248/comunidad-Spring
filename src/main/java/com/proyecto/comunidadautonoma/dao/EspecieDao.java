@@ -18,9 +18,9 @@ public interface EspecieDao {
 
 	Especie findByName(String name);
 
-	List<Especie> findByIdAnimal(Long idAnimal);
+	/*List<Especie> findByIdAnimal(Long idAnimal);
 	
 	List<Especie> findByIdVegetal(Long idVegetal);
 	
-	List<Especie> findByIdMineral(Long idMineral);
+	List<Especie> findByIdMineral(Long idMineral);*/
 }

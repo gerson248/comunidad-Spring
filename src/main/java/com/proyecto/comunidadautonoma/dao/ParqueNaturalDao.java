@@ -18,28 +18,9 @@ public interface ParqueNaturalDao {
 	
 	ParqueNatural findByName(String name);
 
-	List<ParqueNatural> findByIdExcursion(Long idExcursion);
+	/*List<ParqueNatural> findByIdExcursion(Long idExcursion);
 	
 	List<ParqueNatural> findByIdPersonal(Long idPersonal);
 	
-	List<ParqueNatural> findByIdArea(Long idArea);
+	List<ParqueNatural> findByIdArea(Long idArea);*/
 }
-
-/*
-public interface CourseDao {
-	
-	void saveCourse(Course course);
-	
-	void deleteCourseById(Long idCourse);
-	
-	void updateCourse(Course course);
-	
-	List<Course>findAllCourse();
-	
-	Course findById(long idCourse);
-	
-	Course findByName(String name);
-	
-	List<Course> findByIdTeacher(Long idTeacher);
-} 
-*/
