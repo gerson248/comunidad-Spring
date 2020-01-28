@@ -1,15 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.EspecieDao;
 import com.proyecto.comunidadautonoma.model.Especie;
 
-public class EspecieServiceImpl extends AbstractSession implements EspecieService {
-
+@Service("especieService")
+@Transactional
+public class EspecieServiceImpl implements EspecieService {
+	
+	@Autowired
+	private EspecieDao _especieDao;
+	
 	@Override
 	public void saveEspecie(Especie especie) {
 		// TODO Auto-generated method stub
-		getSession().save(especie);
+		_especieDao.saveEspecie(especie);
 	}
 
 	@Override
@@ -17,14 +24,14 @@ public class EspecieServiceImpl extends AbstractSession implements EspecieServic
 		// TODO Auto-generated method stub
 		Especie especie= findById(idEspecie);
 		if(especie!=null) {
-			getSession().delete(idEspecie);
+			_especieDao.deleteEspecieById(idEspecie);
 		}
 	}
 
 	@Override
 	public void updateEspecie(Especie especie) {
 		// TODO Auto-generated method stub
-		getSession().update(especie);
+		_especieDao.updateEspecie(especie);
 	}
 
 	@Override
@@ -44,7 +51,5 @@ public class EspecieServiceImpl extends AbstractSession implements EspecieServic
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 }

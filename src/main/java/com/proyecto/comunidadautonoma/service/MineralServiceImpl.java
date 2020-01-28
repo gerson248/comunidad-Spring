@@ -1,16 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.MineralDao;
 import com.proyecto.comunidadautonoma.model.Mineral;
-import com.proyecto.comunidadautonoma.model.Vegetal;
 
-public class MineralServiceImpl  extends AbstractSession implements MineralService{
+@Service("mineralService")
+@Transactional
+public class MineralServiceImpl implements MineralService{
 
+	@Autowired
+	private MineralDao _mineralDao;
+	
 	@Override
 	public void saveMineral(Mineral mineral) {
 		// TODO Auto-generated method stub
-		getSession().save(mineral);
+		_mineralDao.saveMineral(mineral);
 	}
 
 	@Override
@@ -18,14 +24,14 @@ public class MineralServiceImpl  extends AbstractSession implements MineralServi
 		// TODO Auto-generated method stub
 		Mineral mineral= findById(idEspecie);
 		if(mineral!=null) {
-			getSession().delete(idEspecie);
+			_mineralDao.deleteMineralById(idEspecie);
 		}
 	}
 
 	@Override
 	public void updateMineral(Mineral mineral) {
 		// TODO Auto-generated method stub
-		getSession().update(mineral);
+		_mineralDao.updateMineral(mineral);
 	}
 
 	@Override

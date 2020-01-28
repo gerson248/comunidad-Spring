@@ -2,9 +2,15 @@ package com.proyecto.comunidadautonoma.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
 import com.proyecto.comunidadautonoma.model.Area;
 import com.proyecto.comunidadautonoma.model.Especie;
 
+@Repository
+@Transactional
 public class AreaDaoImpl extends AbstractSession implements AreaDao{
 
 	@Override

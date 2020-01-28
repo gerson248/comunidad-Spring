@@ -1,16 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
-import com.proyecto.comunidadautonoma.model.ParqueNatural;
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.VisitanteDao;
 import com.proyecto.comunidadautonoma.model.Visitante;
 
-public class VisitanteServiceImpl  extends AbstractSession implements VisitanteService{
+@Service("visitanteService")
+@Transactional
+public class VisitanteServiceImpl implements VisitanteService{
 
+	@Autowired
+	private VisitanteDao _visitanteDao;
+	
 	@Override
 	public void saveVisitante(Visitante visitante) {
 		// TODO Auto-generated method stub
-		getSession().save(visitante);
+		_visitanteDao.saveVisitante(visitante);
 	}
 
 	@Override
@@ -18,14 +24,14 @@ public class VisitanteServiceImpl  extends AbstractSession implements VisitanteS
 		// TODO Auto-generated method stub
 		Visitante visitante= findById(idVisitante);
 		if(visitante!=null) {
-			getSession().delete(visitante);
+			_visitanteDao.deleteVisitanteById(idVisitante);
 		}
 	}
 
 	@Override
 	public void updateVisitante(Visitante visitante) {
 		// TODO Auto-generated method stub
-		getSession().update(visitante);
+		_visitanteDao.updateVisitante(visitante);
 	}
 
 	@Override

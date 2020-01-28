@@ -1,15 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.ParqueNaturalDao;
 import com.proyecto.comunidadautonoma.model.ParqueNatural;
 
-public class ParqueNaturalServiceImpl extends AbstractSession implements ParqueNaturalService{
-
+@Service("parqueNaturalService")
+@Transactional
+public class ParqueNaturalServiceImpl implements ParqueNaturalService{
+	
+	@Autowired
+	private ParqueNaturalDao _parqueNaturalDao;
+	
 	@Override
 	public void saveParqueNatural(ParqueNatural parqueNatural) {
 		// TODO Auto-generated method stub
-		getSession().persist(parqueNatural);
+		_parqueNaturalDao.saveParqueNatural(parqueNatural);
 	}
 
 	@Override
@@ -17,14 +24,14 @@ public class ParqueNaturalServiceImpl extends AbstractSession implements ParqueN
 		// TODO Auto-generated method stub
 		ParqueNatural parqueNatural= findById(idParqueNatural);
 		if(parqueNatural!=null) {
-			getSession().delete(parqueNatural);
+			_parqueNaturalDao.deleteParqueNaturalById(idParqueNatural);
 		}
 	}
 
 	@Override
 	public void updateParqueNatural(ParqueNatural parqueNatural) {
 		// TODO Auto-generated method stub
-		getSession().update(parqueNatural);
+		_parqueNaturalDao.updateParqueNatural(parqueNatural);
 	}
 
 	@Override
@@ -44,23 +51,5 @@ public class ParqueNaturalServiceImpl extends AbstractSession implements ParqueN
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/*@Override
-	public List<ParqueNatural> findByIdExcursion(Long idExcursion) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ParqueNatural> findByIdPersonal(Long idPersonal) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ParqueNatural> findByIdArea(Long idArea) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 
 }

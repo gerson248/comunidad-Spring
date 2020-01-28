@@ -2,10 +2,16 @@ package com.proyecto.comunidadautonoma.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
 import com.proyecto.comunidadautonoma.model.Animal;
 import com.proyecto.comunidadautonoma.model.Vegetal;
 import com.proyecto.comunidadautonoma.model.Visitante;
 
+@Repository
+@Transactional
 public class VegetalDaoImpl extends AbstractSession implements VegetalDao{
 
 	@Override

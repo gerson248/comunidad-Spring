@@ -2,9 +2,15 @@ package com.proyecto.comunidadautonoma.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
 import com.proyecto.comunidadautonoma.model.ParqueNatural;
 import com.proyecto.comunidadautonoma.model.Visitante;
 
+@Repository
+@Transactional
 public class VisitanteDaoImpl  extends AbstractSession implements VisitanteDao{
 
 	@Override

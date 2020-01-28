@@ -2,8 +2,14 @@ package com.proyecto.comunidadautonoma.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
 import com.proyecto.comunidadautonoma.model.ParqueNatural;
 
+@Repository
+@Transactional
 public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNaturalDao{
 
 	@Override

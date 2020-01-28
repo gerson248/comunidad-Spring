@@ -1,17 +1,23 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.VegetalDao;
 import com.proyecto.comunidadautonoma.model.Animal;
 import com.proyecto.comunidadautonoma.model.Vegetal;
-import com.proyecto.comunidadautonoma.model.Visitante;
 
-public class VegetalServiceImpl extends AbstractSession implements VegetalService{
-
+@Service("vegetalService")
+@Transactional
+public class VegetalServiceImpl implements VegetalService{
+	
+	@Autowired
+	private VegetalDao _vegetalDao;
+	
 	@Override
 	public void saveVegetal(Vegetal vegetal) {
 		// TODO Auto-generated method stub
-		getSession().save(vegetal);
+		_vegetalDao.saveVegetal(vegetal);
 	}
 
 	@Override
@@ -19,14 +25,14 @@ public class VegetalServiceImpl extends AbstractSession implements VegetalServic
 		// TODO Auto-generated method stub
 		Vegetal vegetal= findById(idEspecie);
 		if(vegetal!=null) {
-			getSession().delete(idEspecie);
+			_vegetalDao.deleteVegetalById(idEspecie);
 		}
 	}
 
 	@Override
 	public void updateVegetal(Vegetal vegetal) {
 		// TODO Auto-generated method stub
-		getSession().update(vegetal);
+		_vegetalDao.updateVegetal(vegetal);
 	}
 
 	@Override

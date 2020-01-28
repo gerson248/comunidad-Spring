@@ -1,16 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.AreaDao;
 import com.proyecto.comunidadautonoma.model.Area;
-import com.proyecto.comunidadautonoma.model.Especie;
 
-public class AreaServiceImpl extends AbstractSession implements AreaService{
+@Service("areaService")
+@Transactional
+public class AreaServiceImpl implements AreaService{
 
+	@Autowired
+	private AreaDao _areaDao;
+	
 	@Override
 	public void saveArea(Area area) {
 		// TODO Auto-generated method stub
-		getSession().save(area);
+		_areaDao.saveArea(area);
 	}
 
 	@Override
@@ -18,14 +24,14 @@ public class AreaServiceImpl extends AbstractSession implements AreaService{
 		// TODO Auto-generated method stub
 		Area area= findById(idArea);
 		if(area!=null) {
-			getSession().delete(idArea);
+			_areaDao.deleteAreaById(idArea);
 		}
 	}
 
 	@Override
 	public void updateArea(Area area) {
 		// TODO Auto-generated method stub
-		getSession().update(area);
+		_areaDao.updateArea(area);
 	}
 
 	@Override

@@ -1,16 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.PersonalDao;
 import com.proyecto.comunidadautonoma.model.Personal;
-import com.proyecto.comunidadautonoma.model.Vegetal;
 
-public class PersonalServiceImpl extends AbstractSession implements PersonalService {
-
+@Service("PersonalService")
+@Transactional
+public class PersonalServiceImpl implements PersonalService {
+	
+	@Autowired
+	private PersonalDao _personalDao;
+	
 	@Override
 	public void savePersonal(Personal personal) {
 		// TODO Auto-generated method stub
-		getSession().save(personal);
+		_personalDao.savePersonal(personal);
 	}
 
 	@Override
@@ -18,14 +24,14 @@ public class PersonalServiceImpl extends AbstractSession implements PersonalServ
 		// TODO Auto-generated method stub
 		Personal personal= findById(idPersonal);
 		if(personal!=null) {
-			getSession().delete(idPersonal);
+			_personalDao.deletePersonalById(idPersonal);
 		}
 	}
 
 	@Override
 	public void updatePersonal(Personal personal) {
 		// TODO Auto-generated method stub
-		getSession().update(personal);
+		_personalDao.updatePersonal(personal);
 	}
 
 	@Override

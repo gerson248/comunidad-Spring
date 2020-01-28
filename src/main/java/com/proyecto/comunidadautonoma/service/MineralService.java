@@ -1,8 +1,5 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
-import com.proyecto.comunidadautonoma.model.Animal;
 import com.proyecto.comunidadautonoma.model.Mineral;
 
 public interface MineralService {

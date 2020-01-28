@@ -1,15 +1,22 @@
 package com.proyecto.comunidadautonoma.service;
-
 import java.util.List;
-
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.proyecto.comunidadautonoma.dao.ExcursionDao;
 import com.proyecto.comunidadautonoma.model.Excursion;
 
-public class ExcursionServiceImpl extends AbstractSession implements ExcursionService  {
+@Service("excursionService")
+@Transactional
+public class ExcursionServiceImpl implements ExcursionService  {
 
+	@Autowired
+	private ExcursionDao _excursionDao;
+	
 	@Override
 	public void saveExcursion(Excursion excursion) {
 		// TODO Auto-generated method stub
-		getSession().persist(excursion);
+		_excursionDao.saveExcursion(excursion);
 	} 
 
 	@Override
@@ -17,14 +24,14 @@ public class ExcursionServiceImpl extends AbstractSession implements ExcursionSe
 		// TODO Auto-generated method stub
 		Excursion excursion= findById(idExcursion);
 		if(excursion!=null) {
-			getSession().delete(excursion);
+			_excursionDao.deleteExcursionById(idExcursion);
 		}
 	}
 
 	@Override
 	public void updateExcursion(Excursion excursion) {
 		// TODO Auto-generated method stub
-		getSession().update(excursion);
+		_excursionDao.updateExcursion(excursion);
 	}
 
 	@Override
