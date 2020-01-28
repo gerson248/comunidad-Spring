@@ -1,10 +1,10 @@
-package com.proyecto.comunidadautonoma.dao;
+package com.proyecto.comunidadautonoma.service;
 
 import java.util.List;
 
 import com.proyecto.comunidadautonoma.model.Especie;
 
-public class EspecieDaoImpl extends AbstractSession implements EspecieDao {
+public class EspecieServiceImpl extends AbstractSession implements EspecieService {
 
 	@Override
 	public void saveEspecie(Especie especie) {

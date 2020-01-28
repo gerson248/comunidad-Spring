@@ -1,10 +1,10 @@
-package com.proyecto.comunidadautonoma.dao;
+package com.proyecto.comunidadautonoma.service;
 
 import java.util.List;
 
 import com.proyecto.comunidadautonoma.model.Especie;
 
-public interface EspecieDao {
+public interface EspecieService {
 	
 	void saveEspecie(Especie especie);
 
