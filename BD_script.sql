@@ -12,7 +12,7 @@ CREATE TABLE area
   coda INT(8) NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(20) NOT NULL 
 , extension FLOAT(5) NOT NULL 
-, codpn VARCHAR(4) NOT NULL
+, codpn INT(8) NOT NULL
 , PRIMARY KEY(coda) 
 );
 
@@ -21,7 +21,7 @@ ALTER TABLE area ADD FOREIGN KEY(codpn) REFERENCES parquenatural(codpn) ;
 
 CREATE TABLE especie 
 (
-  codespecie int(8) NOT NULL AUTO_INCREMENT
+  codespecie INT(8) NOT NULL AUTO_INCREMENT
 , nombreCientifico VARCHAR(100) NOT NULL 
 , nombreVulgar VARCHAR(100) NOT NULL
 , PRIMARY KEY (codespecie) 
