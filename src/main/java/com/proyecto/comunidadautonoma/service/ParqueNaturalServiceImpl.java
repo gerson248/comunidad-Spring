@@ -37,19 +37,19 @@ public class ParqueNaturalServiceImpl implements ParqueNaturalService{
 	@Override
 	public List<ParqueNatural> findAllParqueNaturales() {
 		// TODO Auto-generated method stub
-		return null;
+		return _parqueNaturalDao.findAllParqueNaturales();
 	}
 
 	@Override
 	public ParqueNatural findById(Long idParqueNatural) {
 		// TODO Auto-generated method stub
-		return null;
+		return _parqueNaturalDao.findById(idParqueNatural);
 	}
 
 	@Override
 	public ParqueNatural findByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return _parqueNaturalDao.findByName(name);
 	}
 
 }

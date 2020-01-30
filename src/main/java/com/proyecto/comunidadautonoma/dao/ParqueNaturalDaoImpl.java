@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+
 import com.proyecto.comunidadautonoma.model.ParqueNatural;
 
 @Repository
@@ -23,7 +24,7 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 		// TODO Auto-generated method stub
 		ParqueNatural parqueNatural= findById(idParqueNatural);
 		if(parqueNatural!=null) {
-			getSession().delete(parqueNatural);
+			getSession().delete(parqueNatural); 
 		}
 	}
 
@@ -36,7 +37,7 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 	@Override
 	public List<ParqueNatural> findAllParqueNaturales() {
 		// TODO Auto-generated method stub
-		return null;
+		return getSession().createQuery("from ParqueNatural").list();
 	}
 
 	@Override
@@ -46,9 +47,9 @@ public class ParqueNaturalDaoImpl extends AbstractSession implements ParqueNatur
 	}
 
 	@Override
-	public ParqueNatural findByName(String name) {
+	public ParqueNatural findByName(String nombre) {
 		// TODO Auto-generated method stub
-		return null;
+		return (ParqueNatural) getSession().createQuery("from ParqueNatural where nombre = :nombre").setParameter("nombre",nombre).uniqueResult();
 	}
 
 	/*@Override

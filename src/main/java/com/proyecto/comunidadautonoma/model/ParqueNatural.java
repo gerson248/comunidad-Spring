@@ -33,12 +33,15 @@ public class ParqueNatural implements Serializable {
 	private Date fechaDeclaracion;
 	
 	@OneToMany(mappedBy="parquenatural")
+	@JsonIgnore
 	private Set<Excursion> excursiones;
 	
 	@OneToMany(mappedBy="parquenatural")
+	@JsonIgnore
 	private Set<Personal> personales;
 	
 	@OneToMany(mappedBy="parquenatural")
+	@JsonIgnore
 	private Set<Area> areas;
 	
 	

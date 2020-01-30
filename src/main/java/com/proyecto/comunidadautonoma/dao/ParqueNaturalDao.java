@@ -16,7 +16,7 @@ public interface ParqueNaturalDao {
 	
 	ParqueNatural findById(Long idParqueNatural);
 	
-	ParqueNatural findByName(String name);
+	ParqueNatural findByName(String nombre);
 
 	/*List<ParqueNatural> findByIdExcursion(Long idExcursion);
 	
